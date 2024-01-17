@@ -56,7 +56,7 @@ mod tests {
     fn test_dot_product() {
         let arr1 = [1, 2, 3];
         let arr2 = [4, 5, 6];
-        let result = super::dot_product(arr1.as_ptr(), arr2.as_ptr(), arr1.len());
+        let result = unsafe { super::dot_product(arr1.as_ptr(), arr2.as_ptr(), arr1.len()) };
         assert_eq!(result, 32);
     }
 
@@ -65,7 +65,7 @@ mod tests {
         let arr1 = [1, 2, 3];
         let arr2 = [4, 5, 6];
         let len = arr1.len();
-        let result_ptr = super::elementwise_product(arr1.as_ptr(), arr2.as_ptr(), len);
+        let result_ptr = unsafe { super::elementwise_product(arr1.as_ptr(), arr2.as_ptr(), len) };
         let result_vec: Vec<i32> = unsafe { Vec::from_raw_parts(result_ptr, len, len) };
         assert_eq!(result_vec, vec![4, 10, 18]);
         std::mem::forget(result_vec);
