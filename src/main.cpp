@@ -1,9 +1,5 @@
 #include <iostream>
-
-extern "C" {
-    int dot_product(const int* arr1, const int* arr2, size_t len);
-    int* elementwise_product(const int* arr1, const int* arr2, size_t len);
-}
+#include "rust.h"
 
 int main() {
     int arr1[] = {1, 2, 3};
