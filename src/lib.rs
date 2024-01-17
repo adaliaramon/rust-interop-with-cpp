@@ -47,7 +47,7 @@ pub unsafe extern "C" fn elementwise_product(
         .collect();
     let result = product.as_ptr();
     std::mem::forget(product);
-    result as *mut i32
+    result.cast_mut()
 }
 
 #[cfg(test)]
