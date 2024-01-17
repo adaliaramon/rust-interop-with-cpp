@@ -11,7 +11,7 @@
 /// and that the length `len` is accurate.
 pub unsafe extern "C" fn dot_product(arr1: *const i32, arr2: *const i32, len: usize) -> i32 {
     if arr1.is_null() || arr2.is_null() {
-        return -1;
+        return -1; // Not the best error code, but it's just an example.
     }
     let slice1 = unsafe { std::slice::from_raw_parts(arr1, len) };
     let slice2 = unsafe { std::slice::from_raw_parts(arr2, len) };
